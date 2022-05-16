@@ -22,7 +22,7 @@ app.all("*", (req, res, next) => {
   next(new createError.NotFound());
 });
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   const messError = err.message || "Internal server Error";
   const statusCode = err.status || 500;
   res.status(statusCode).json({
