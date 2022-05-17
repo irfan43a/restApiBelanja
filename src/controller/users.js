@@ -22,7 +22,7 @@ const register = async (req, res, next) => {
       email,
       password: passwordHash,
       fullname,
-      role,
+      role: role || "user",
     };
     await create(data);
     commonHelper.response(res, null, 201, "data berhasil register");

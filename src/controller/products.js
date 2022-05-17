@@ -56,7 +56,7 @@ exports.updateProducts = async (req, res, next) => {
   try {
     const id = parseInt(req.params.id);
     const { name, description, stock, price, id_category } = req.body;
-    const data = { id, name, description, stock, price, id_category };
+    const data = { id, name, description, stock, price, id_category, photo: `http://${req.get("host")}/img/${req.file.filename}` };
     console.log(data);
     await productsModel.update(data);
     commonHelper.response(res, data, 201, "data berhasil di update");

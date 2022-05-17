@@ -17,8 +17,8 @@ const insert = ({ id_category, name, description, stock, price, photo }) => {
     });
   });
 };
-const update = ({ name, description, stock, price, id_category, id }) => {
-  return pool.query(`UPDATE products SET name = $1, description = $2, stock = $3, price = $4, id_category = $5 WHERE id = $6`, [name, description, stock, price, id_category, id]);
+const update = ({ name, description, stock, price, id_category, photo, id }) => {
+  return pool.query(`UPDATE products SET name = $1, description = $2, stock = $3, price = $4, id_category = $5, photo = $6 WHERE id = $7`, [name, description, stock, price, id_category, photo, id]);
 };
 const deleteProducts = (id) => {
   return pool.query("DELETE FROM products WHERE id = $1", [id]);
